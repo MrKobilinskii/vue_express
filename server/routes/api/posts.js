@@ -29,7 +29,8 @@ router.delete('/:id', async (req, res) => {
 async function loadPostsCollection() {
   const client = await mongodb.MongoClient.connect(
     'mongodb+srv://dbUser:dbUser@mycluster-drb7v.mongodb.net/test?retryWrites=true&w=majority',{
-      useNewUrlParser: true
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     });
 
   return client.db('myClaster').collection('posts');
